@@ -73,10 +73,18 @@ button {
   flex-direction: column;
   justify-content: space-between;
 
-  flex-basis: calc(25% - 60px);
+  // flex-basis: calc(30% - 60px);
+
+  width: 310px;
   background-color: beige;
   color: inherit;
   text-decoration: none;
+}
+
+@media screen and (max-width: '650px') {
+  .photo-card {
+    width: 100%;
+  }
 }
 
 .photo-card img {
