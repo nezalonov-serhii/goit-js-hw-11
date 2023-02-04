@@ -25,6 +25,7 @@ async function onClickSearch(e) {
   e.preventDefault();
 
   currentPage = 1;
+  clearMarkap(ref.gallary);
   ref.btnLoadMore.classList.add('is-hiden');
   searchName = ref.inputSearch.value;
 
@@ -109,4 +110,8 @@ async function clickOnLoadMore() {
   } catch (error) {
     console.log(error);
   }
+}
+
+function clearMarkap(elem) {
+  elem.innerHTML = '';
 }
