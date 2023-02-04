@@ -92,10 +92,13 @@ ref.btnLoadMore.addEventListener('click', clickOnLoadMore);
 
 async function clickOnLoadMore() {
   try {
+    ref.btnLoadMore.disabled = true;
     currentPage += 1;
     const data = await fetchPhotos(searchName, currentPage);
 
     ref.gallary.insertAdjacentHTML('beforeend', generateMarckap(data.hits));
+
+    ref.btnLoadMore.disabled = false;
 
     const { height: cardHeight } = document
       .querySelector('.gallery')
