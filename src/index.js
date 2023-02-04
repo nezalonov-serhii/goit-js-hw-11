@@ -97,6 +97,15 @@ async function clickOnLoadMore() {
 
     ref.gallary.insertAdjacentHTML('beforeend', generateMarckap(data.hits));
 
+    const { height: cardHeight } = document
+      .querySelector('.gallery')
+      .firstElementChild.getBoundingClientRect();
+
+    window.scrollBy({
+      top: cardHeight * 1.7,
+      behavior: 'smooth',
+    });
+
     gallary.refresh();
     const totalPages = data.totalHits / 40;
 
