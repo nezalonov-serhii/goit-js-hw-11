@@ -8,6 +8,5 @@ export default async function fetchPhotos(search, currentPage) {
     `${URL}?key=${API_KEY}&q=${search}&image_type=photo&safesearch=true&orientation=horizontal&per_page=40&page=${currentPage}`
   );
 
-  console.log(response.data);
   return response.data;
 }
