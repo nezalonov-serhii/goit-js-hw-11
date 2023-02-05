@@ -40,6 +40,9 @@ async function onClickSearch(e) {
     const totalPages = data.totalHits / 40;
 
     if (data.hits.length === 0) {
+      return Notiflix.Notify.failure(
+        '"Sorry, there are no images matching your search query. Please try again."'
+      );
     }
 
     Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
