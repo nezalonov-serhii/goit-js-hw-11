@@ -24,19 +24,22 @@ ref.form.addEventListener('submit', onClickSearch);
 async function onClickSearch(e) {
   e.preventDefault();
 
+  if (ref.inputSearch.value === '') {
+    return Notiflix.Notify.failure(
+      '"Sorry, there are no images matching your search query. Please try again."'
+    );
+  }
+
   currentPage = 1;
   clearMarkap(ref.gallary);
   ref.btnLoadMore.classList.add('is-hiden');
-  searchName = ref.inputSearch.value;
+  searchName = ref.inputSearch.value.trim();
 
   try {
     const data = await fetchPhotos(searchName, currentPage);
     const totalPages = data.totalHits / 40;
 
     if (data.hits.length === 0) {
-      return Notiflix.Notify.failure(
-        '"Sorry, there are no images matching your search query. Please try again."'
-      );
     }
 
     Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
