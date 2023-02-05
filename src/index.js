@@ -24,7 +24,7 @@ ref.form.addEventListener('submit', onClickSearch);
 async function onClickSearch(e) {
   e.preventDefault();
 
-  if (ref.inputSearch.value === '') {
+  if (ref.inputSearch.value.trim() === '') {
     return Notiflix.Notify.failure(
       '"Sorry, there are no images matching your search query. Please try again."'
     );
